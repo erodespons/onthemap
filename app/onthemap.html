@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+
+    <title>OnTheMap</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- jQuery, Popper, Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js"integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="crossorigin=""/>
+
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="crossorigin=""></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+
+    <!-- Local Files -->
+    <script type="text/javascript" src="js/data/europe_airports.js"></script>
+    <script type="text/javascript" src="js/data/onthemapcards.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/onthemap.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/route.js"></script>
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/master.css">
+
+  </head>
+
+  <body>
+    <div class="onthemap">
+    <h1>OnTheMap</h1>
+    <div id="number-of-players" class="btn-group btn-group-lg" role="group" aria-label="Number of players">
+      <button type="button" class="btn btn-secondary" value='2'>2</button>
+      <button type="button" class="btn btn-secondary" value="3">3</button>
+      <button type="button" class="btn btn-secondary" value="4">4</button>
+    </div>
+
+      <div class="container-fluid">
+        <div class="row" id="game-div">
+          <div class="col-lg-8" class="col-md-12">
+            <div id="map">
+              <!-- The map will come here. -->
+            </div>
+          </div>
+          <div class="col-lg-4" class="col-md-12" id="panel">
+            <div id="questionaire">
+              <p>Get ready for the race!</p>
+              <!-- onthemap.js will push the questions here -->
+            </div>
+            <input id="answers-form">
+              <!-- players will submit their answers here -->
+            </input>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

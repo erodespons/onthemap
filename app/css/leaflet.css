@@ -1,0 +1,13 @@
+/*Stiles of the map*/
+
+#map {
+  height: 550px;
+  width: 100%;
+  z-index: 1;
+};
+
+.infoHeader {
+  font-size: 30px;
+  color: #580800;
+  font-family: 'Abril Fatface', cursive;
+}

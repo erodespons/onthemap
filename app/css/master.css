@@ -1,0 +1,60 @@
+/*Stiles of the main app page*/
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Abril Fatface', cursive;
+  background-color: #242426;
+};
+
+.onthemap{
+  height:100vh;
+  width: 100vw;
+}
+
+#game-div{
+  height: 100%;
+  width: 100%;
+  margin-top: 7rem;
+}
+
+h1{
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3rem;
+  color: #00e8c5;
+  z-index: 10;
+}
+
+#number-of-players{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 10;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3rem;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+  font-size: 3rem;
+}
+
+.btn-secondary {
+  color: #ff598e;
+  border-color: #ff598e;
+  background-color: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: #f5fe00;
+  color: #242426;
+  border-color: #242426;
+}
+
+#questionaire {
+  color: #f5fe00;
+  font-size: 2rem;
+};
