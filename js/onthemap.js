@@ -39,25 +39,25 @@ var OnTheMap = function(numberOfPlayers) {
 
 // Create Players function - used to create all the players in each game
 
- OnTheMap.prototype.createPlayers = function() {
+OnTheMap.prototype.createPlayers = function() {
 
-   for (var i = 1; i <= this.numberOfPlayers; i++) {
-     var player = new Player(prompt("Choose a name for Player " + i));
-     this.players.push(player);
-     $("#player-" + i).append(this.players[i-1].name);
-     $("#player-" + i + "-stops").append(this.players[i-1].stopsLeft);
+  for (var i = 1; i <= this.numberOfPlayers; i++) {
+    var player = new Player(prompt("Choose a name for Player " + i));
+    this.players.push(player);
+    $("#player-" + i).append(this.players[i - 1].name);
+    $("#player-" + i + "-stops").append(this.players[i - 1].stopsLeft);
 
-   };
-   this.t = Math.floor(Math.random() * (this.numberOfPlayers)); //randomly assign turn
-   this.last = this.t;
-   //alert(this.players[t].name + " starts the game");
-   $("#speaker").empty();
-   $("#speaker").append(this.players[this.t].name + " starts the game");
-   $("#speaker").slideDown(1000);
-   $("#speaker").delay(500).fadeOut(500);
- };
+  };
+  this.t = Math.floor(Math.random() * (this.numberOfPlayers)); //randomly assign turn
+  this.last = this.t;
+  //alert(this.players[t].name + " starts the game");
+  $("#speaker").empty();
+  $("#speaker").append(this.players[this.t].name + " starts the game");
+  $("#speaker").slideDown(1000);
+  $("#speaker").delay(500).fadeOut(500);
+};
 
- // Create Players function - used to create all the players in each game
+// Create Players function - used to create all the players in each game
 
 // OnTheMap.prototype.createPlayers = function() {
 //   var i = 1;
@@ -110,22 +110,22 @@ OnTheMap.prototype.play = function() {
 OnTheMap.prototype._checkAnswer = function() {
   playerAnswer = $("#msg").val().toUpperCase();
   if (playerAnswer == this.cards[r].answer.toUpperCase()) {
-      $("#speaker").empty();
-      $("#speaker").append("You got it right! Try with the next.");
-      $("#speaker").slideDown(1000);
-      $("#speaker").delay(500).fadeOut(500);
-      this.players[this.t].stopsLeft--;
-      this.players[this.t].score = this.players[this.t].score + 5;
-      this.cards.splice(r,1);
-      $("#player-" + this.t + "-stops").hide().empty();
-      $("#player-" + this.t + "-stops").append(this.players[this.t].stopsLeft);
-      $("#player-" + this.t + "-stops").slideDown(500);
-      $("#player-" + this.t + "-score").hide().empty();
-      $("#player-" + this.t + "-score").append(this.players[this.t].score);
-      $("#player-" + this.t + "-score").slideDown(500);
+    $("#speaker").empty();
+    $("#speaker").append("You got it right! Try with the next.");
+    $("#speaker").slideDown(1000);
+    $("#speaker").delay(500).fadeOut(500);
+    this.players[this.t].stopsLeft--;
+    this.players[this.t].score = this.players[this.t].score + 5;
+    this.cards.splice(r, 1);
+    $("#player-" + this.t + "-stops").hide().empty();
+    $("#player-" + this.t + "-stops").append(this.players[this.t].stopsLeft);
+    $("#player-" + this.t + "-stops").slideDown(500);
+    $("#player-" + this.t + "-score").hide().empty();
+    $("#player-" + this.t + "-score").append(this.players[this.t].score);
+    $("#player-" + this.t + "-score").slideDown(500);
   } else {
     this.last = this.t;
-    if (this.t < (this.numberOfPlayers-1)) {
+    if (this.t < (this.numberOfPlayers - 1)) {
       this.t++;
     } else {
       this.t = 0;

@@ -11,14 +11,14 @@ $(document).ready(function() {
     scrollWheelZoom: false
   });
 
-  // Add basemap
+  // Add a basemap
 
   L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
     maxZoom: 18,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy;\<a href="https://carto.com/attribution"> CARTO</a>'
   }).addTo(mymap);
 
-  // Add point layer
+  // Add a point layer
 
   var icon = new L.icon({
     iconUrl: "https://s3.amazonaws.com/com.cartodb.users-assets.production/maki-icons/airport-18.svg",
@@ -38,29 +38,29 @@ $(document).ready(function() {
 
   $("#speaker").append("<p>Welcome to OnTheMap!</p>");
   $("#speaker").slideDown(1000);
-  $("#speaker").delay(500).fadeOut(1000).queue(function(){
+  $("#speaker").delay(500).fadeOut(1000).queue(function() {
     $("#speaker").empty();
     $("#speaker").append("<p>How many players are you?</p>");
     $("#speaker").slideDown(1000);
     $("#speaker").delay(500).fadeOut(500);
-    $( this ).dequeue();
+    $(this).dequeue();
   });
 
   $(".btn-secondary").delay(5000).slideDown(500);
 
   // Start a game
 
-    // Start a game
+  // Start a game
 
-   $(".btn-group > button.btn").on("click", function(){
-     $("#number-of-players").slideDown(1000); //makes the start button appear
-     var numberOfPlayers = this.innerHTML;
-     console.log(numberOfPlayers);
-     game = new OnTheMap(numberOfPlayers);
-     $("#questionaire > btn-secondary").empty();
-     $("#number-of-players").fadeOut(1000);
-     game.createPlayers(); // Create players
-     game.play(); // Play
+  $(".btn-group > button.btn").on("click", function() {
+    $("#number-of-players").slideDown(1000); //makes the start button appear
+    var numberOfPlayers = this.innerHTML;
+    console.log(numberOfPlayers);
+    game = new OnTheMap(numberOfPlayers);
+    $("#questionaire > btn-secondary").empty();
+    $("#number-of-players").fadeOut(1000);
+    game.createPlayers(); // Create players
+    game.play(); // Play
 
 
 
@@ -69,19 +69,19 @@ $(document).ready(function() {
     //  }).addTo(mymap);
 
 
- });
+  });
 
-//   $(".btn-group > button.btn").on("click", function(){
-//     $("#number-of-players").fadeOut(2000);
-//     var numberOfPlayers = this.innerHTML;
-//     game = new OnTheMap(numberOfPlayers);
-//     game.createPlayers(); // Create players
-//     if (!playersExist) {
-//     game.play(); // Play
-//   };
-// });
+  //   $(".btn-group > button.btn").on("click", function(){
+  //     $("#number-of-players").fadeOut(2000);
+  //     var numberOfPlayers = this.innerHTML;
+  //     game = new OnTheMap(numberOfPlayers);
+  //     game.createPlayers(); // Create players
+  //     if (!playersExist) {
+  //     game.play(); // Play
+  //   };
+  // });
 
-    // create a red polyline from an array of LatLng points
+  // create a red polyline from an array of LatLng points
 
 
 

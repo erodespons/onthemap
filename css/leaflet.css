@@ -4,8 +4,9 @@
   height: 550px;
   width: 100%;
   z-index: 1;
-};
+}
 
+;
 .infoHeader {
   font-size: 1rem;
   color: #580800;
