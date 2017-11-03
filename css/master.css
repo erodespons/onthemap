@@ -86,3 +86,22 @@ h2{
   margin-top: 15%;
   color: #f5fe00;
 }
+
+#check {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    color: #f5fe00;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 3rem;
+    border-width: 2px;
+    border-color: #f5fe00;
+}
+
+#check:hover {
+    color: #f1000e;
+    background-color: #f5fe00;
+}

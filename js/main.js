@@ -50,21 +50,39 @@ $(document).ready(function() {
 
   // Start a game
 
-  $(".btn-group > button.btn").on("click", function(){
-    $("#number-of-players").fadeOut(2000);
-    var numberOfPlayers = this.innerHTML;
-    game = new OnTheMap(numberOfPlayers);
-    game.createPlayers(); // Create players
-    if (game.players[numberOfPlayers-1].name != undefined) {
-    game.play(); // Play
-  };
-});
+    // Start a game
+
+   $(".btn-group > button.btn").on("click", function(){
+     $("#number-of-players").slideDown(1000); //makes the start button appear
+     var numberOfPlayers = this.innerHTML;
+     console.log(numberOfPlayers);
+     game = new OnTheMap(numberOfPlayers);
+     $("#questionaire > btn-secondary").empty();
+     $("#number-of-players").fadeOut(1000);
+     game.createPlayers(); // Create players
+     game.play(); // Play
+
+
+
+    //  var polyline = L.polyline(game.players[0].itinerary.stopCooridnates.reverse(), {
+    //    color: 'red'
+    //  }).addTo(mymap);
+
+
+ });
+
+//   $(".btn-group > button.btn").on("click", function(){
+//     $("#number-of-players").fadeOut(2000);
+//     var numberOfPlayers = this.innerHTML;
+//     game = new OnTheMap(numberOfPlayers);
+//     game.createPlayers(); // Create players
+//     if (!playersExist) {
+//     game.play(); // Play
+//   };
+// });
 
     // create a red polyline from an array of LatLng points
 
-    // var polyline = L.polyline(game.players[0].itinerary.stopCooridnates.reverse(), {
-    //   color: 'red'
-    // }).addTo(mymap);
 
 
 

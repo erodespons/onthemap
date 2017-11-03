@@ -9,6 +9,7 @@ var Player = function(name) {
     stopCooridnates: []
   };
   this.stopsLeft = 9;
+  this.score = 0;
   for (i = 0; i < this.route.length; i++) {
     this.itinerary.stops.push(" " + this.route[i].properties.airport_name);
     this.itinerary.stopCooridnates.push(this.route[i].geometry.coordinates);
