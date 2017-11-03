@@ -28,6 +28,18 @@ h1{
   z-index: 10;
 }
 
+h2{
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1000;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 3rem;
+  color: #00c1ff;
+}
+
 #number-of-players{
   position: absolute;
   left: 50%;
@@ -43,6 +55,7 @@ h1{
 }
 
 .btn-secondary {
+  display: none;
   color: #ff598e;
   border-color: #ff598e;
   background-color: transparent;
@@ -58,3 +71,18 @@ h1{
   color: #f5fe00;
   font-size: 2rem;
 };
+
+#msg {
+  font-size: 1rem;
+  width: 50%;
+  color: #ff598e
+};
+
+.input-large[class="input-large"] {
+    width: 400px;
+}
+
+.table {
+  margin-top: 15%;
+  color: #f5fe00;
+}

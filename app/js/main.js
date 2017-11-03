@@ -34,19 +34,31 @@ $(document).ready(function() {
     onEachFeature: playerIcon
   }).addTo(mymap); // adds function playerIcon to each point
 
+  // Welcome and instructions
+
+  $("#speaker").append("<p>Welcome to OnTheMap!</p>");
+  $("#speaker").slideDown(1000);
+  $("#speaker").delay(500).fadeOut(1000).queue(function(){
+    $("#speaker").empty();
+    $("#speaker").append("<p>How many players are you?</p>");
+    $("#speaker").slideDown(1000);
+    $("#speaker").delay(500).fadeOut(500);
+    $( this ).dequeue();
+  });
+
+  $(".btn-secondary").delay(5000).slideDown(500);
+
   // Start a game
 
   $(".btn-group > button.btn").on("click", function(){
-    $("#number-of-players").slideDown(1000); //makes the start button appear
+    $("#number-of-players").fadeOut(2000);
     var numberOfPlayers = this.innerHTML;
-    console.log(numberOfPlayers);
     game = new OnTheMap(numberOfPlayers);
-    $("#questionaire > btn-secondary").empty();
     game.createPlayers(); // Create players
+    if (game.players[numberOfPlayers-1].name != undefined) {
     game.play(); // Play
+  };
 });
-
-
 
     // create a red polyline from an array of LatLng points
 

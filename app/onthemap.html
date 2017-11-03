@@ -38,6 +38,11 @@
   <body>
     <div class="onthemap">
     <h1>OnTheMap</h1>
+
+    <h2 id="speaker">
+      <!-- This div will be used to send message to the users -->
+    </h2>
+
     <div id="number-of-players" class="btn-group btn-group-lg" role="group" aria-label="Number of players">
       <button type="button" class="btn btn-secondary" value='2'>2</button>
       <button type="button" class="btn btn-secondary" value="3">3</button>
@@ -46,19 +51,57 @@
 
       <div class="container-fluid">
         <div class="row" id="game-div">
+          <!-- Map Space -->
           <div class="col-lg-8" class="col-md-12">
             <div id="map">
               <!-- The map will come here. -->
             </div>
           </div>
+          <!--Game info space-->
           <div class="col-lg-4" class="col-md-12" id="panel">
             <div id="questionaire">
-              <p>Get ready for the race!</p>
+              <p>Get ready for the trip!</p>
               <!-- onthemap.js will push the questions here -->
             </div>
-            <input id="answers-form">
+            <input id="msg" type="text" class="form-control" name="msg" placeholder="Submit your answer here">
               <!-- players will submit their answers here -->
             </input>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Stops Left</th>
+                  <th scope="col">Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td id="player-1"></td>
+                  <td id="player-1-stops"></td>
+                  <td id="player-1-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td id="player-2"></td>
+                  <td id="player-2-stops"></td>
+                  <td id="player-2-score>"</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td id="player-3"></td>
+                  <td id="player-3-stops"></td>
+                  <td id="player-3-score"></td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td id="player-4"></td>
+                  <td id="player-4-stops"></td>
+                  <td id="player-4-score"></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

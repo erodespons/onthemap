@@ -16,8 +16,7 @@
 
 //TODO Create more cards with country_name and associate them to each "airport"
 //TODO Paint routes with start and finish markers + marker with the position.
-//TODO Create start game page
-//TODO Create lateral div with questions and answers
+//TODO What happens when someone wins?
 
 // OnTheMap constructor function. We use it to start a new game.
 
@@ -41,52 +40,73 @@ var OnTheMap = function(numberOfPlayers) {
 // Create Players function - used to create all the players in each game
 
 OnTheMap.prototype.createPlayers = function() {
-
-  for (var i = 1; i <= this.numberOfPlayers; i++) {
-    var player = new Player(prompt("Choose a name for Player " + i));
-    this.players.push(player);
+  var i = 1;
+  namePlayer = function () {
+    $("#questionaire").empty();
+    $("#questionaire").empty().hide();
+    $("#questionaire").append("Choose a name for Player " + i);
+    $("#questionaire").slideDown(500);
+    $("#msg").keydown((e) => {
+      if (e.which == 13) {
+        var player = new Player($("#msg").val());
+        this.players.push(player);
+        $("#player-" + i).append(this.players[i-1].name);
+        $("#player-" + i + "-stops").append(this.players[i-1].stopsLeft);
+        i++;
+      }
+    });
   };
-  this.t = Math.floor(Math.random() * (this.numberOfPlayers)); //randomly assign turn
-  this.last = this.t;
-  //alert(this.players[t].name + " starts the game");
-};
-
-OnTheMap.prototype._checkAnswer = function(r) {
-  playerAnswer = $("#answers-form").val().toUpperCase();
-  console.log(playerAnswer + this.cards[r].answer);
-  if (playerAnswer == this.cards[r].answer.toUpperCase()) {
-    alert("You got it right! Try with the next.");
-    this.players[this.t].stopsLeft--;
-    this.cards.splice(r,1);
-    for (var i = 0; i < this.numberOfPlayers; i++) {
-      console.log(this.players[i].name + " has " + this.players[i].stopsLeft + " stops left.");
-    $("#answers-form").val("");
-    $("#questionaire").empty();
-    this.play();
-    };
-    this.players[this.t].stopsLeft--;
+  if (i <= this.numberOfPlayers) {
+    namePlayer(i);
   } else {
-    console.log("Fail! It is turn for " + this.players[this.t].name + " to play");
+    this.t = Math.floor(Math.random() * (this.numberOfPlayers)); //randomly assign turn
     this.last = this.t;
-    if (this.t < this.numberOfPlayers) {
-      this.t++;
-    } else {
-      this.t = 0;
-    };
-    $("#answers-form").empty();
-    $("#questionaire").empty();
-    this.play();
-  }
+    $("#speaker").empty();
+    $("#speaker").append(this.players[this.t].name + " starts the game");
+    $("#speaker").slideDown(1000);
+    $("#speaker").delay(500).fadeOut(500);
+  };
 };
 
 // Play function - used to play in each turn
 
 OnTheMap.prototype.play = function() {
   var r = Math.floor(Math.random() * this.cards.length);
-  $("#questionaire").append("<p>" + this.cards[r].question + "<p>");
-  $("#answers-form").keydown((e) => {
+  $("#questionaire").empty().hide();
+  $("#questionaire").append("<p>" + this.cards[r].question + "</p>").slideDown(500);
+  $("#msg").keydown((e) => {
     if (e.which == 13) {
       this._checkAnswer(r);
       }
     });
+};
+
+// Used by the Play function to check the answers of the players and continue playing
+
+OnTheMap.prototype._checkAnswer = function(r) {
+  playerAnswer = $("#msg").val().toUpperCase();
+  if (playerAnswer == this.cards[r].answer.toUpperCase()) {
+    alert("You got it right! Try with the next.");
+    this.players[this.t].stopsLeft--;
+    this.cards.splice(r,1);
+    $("#player-" + this.t + "-stops").empty();
+    $("#player-" + this.t + "-stops").append(this.players[this.t].stopsLeft);
+    $("#msg").val("");
+    $("#questionaire").empty();
+    this.play();
+  } else {
+    this.last = this.t;
+    if (this.t < (this.numberOfPlayers-1)) {
+      this.t++;
+    } else {
+      this.t = 0;
+    };
+    $("#speaker").empty();
+    $("#speaker").append("Fail! It is turn for " + this.players[this.t].name + " to play");
+    $("#speaker").slideDown(1000);
+    $("#speaker").delay(500).fadeOut(500);
+  };
+  $("#msg").empty();
+  $("#questionaire").empty();
+  this.play();
 };
